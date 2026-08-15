@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>चौराहा सर्विस</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header with Centered Logo, Email & Top Social Links -->
+    <header class="app-header">
+        <div class="header-center">
+            <img src="logo.png" alt="Chauraha Logo" class="app-logo-large">
+            <h1 class="brand-title">चौराहा सर्विस</h1>
+            <a href="mailto:chaurahaservice@gmail.com" class="header-email">
+                <i class="fas fa-envelope"></i> chaurahaservice@gmail.com
+            </a>
+            <!-- Top Social Links -->
+            <div class="top-social-links">
+                <a href="https://wa.me/919876543210" target="_blank" class="top-social-btn wa"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://facebook.com" target="_blank" class="top-social-btn fb"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank" class="top-social-btn insta"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com" target="_blank" class="top-social-btn yt"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MSME Verified Badge -->
+    <div class="msme-badge-bar">
+        <i class="fas fa-award"></i>
+        <span>भारत सरकार द्वारा <strong>MSME पंजीकृत</strong> संस्थान</span>
+        <i class="fas fa-check-circle check-icon"></i>
+    </div>
+
+    <!-- App Body Container -->
+    <main class="app-body">
+
+        <!-- WINDOW 1: HOME SCREEN -->
+        <section id="home-screen" class="view-screen active">
+            
+            <!-- Location & Helpline Banner -->
+            <div class="location-card">
+                <div class="loc-info">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>सेवा क्षेत्र: पिहानी / हरदोई</span>
+                </div>
+                <a href="tel:+919999999999" class="call-btn"><i class="fas fa-phone-alt"></i> कॉल करें</a>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="service-search" placeholder="सेवा खोजें (उदा. मिस्त्री, प्लंबर...)" onkeyup="filterServices()">
+            </div>
+
+            <!-- Promo Banner with Tagline -->
+            <div class="promo-banner">
+                <h3>चौराहे की हर सुविधा, सिर्फ एक क्लिक पर</h3>
+            </div>
+
+            <!-- Homepage Direct Website Card -->
+            <div class="web-link-card home-web-card" onclick="window.open('https://chaurahaservice.com', '_blank')">
+                <i class="fas fa-globe"></i>
+                <div class="web-info">
+                    <span>हमारी आधिकारिक वेबसाइट पर जाएं</span>
+                    <strong>www.chaurahaservice.com</strong>
+                </div>
+                <i class="fas fa-external-link-alt arrow"></i>
+            </div>
+
+            <!-- Categories Grid -->
+            <h2 class="section-title">हमारी सेवाएं चुनें</h2>
+            <div class="services-grid" id="services-grid">
+                <div class="service-card" onclick="openBookingModal('मिस्त्री (Mason)')" data-name="मिस्त्री mason">
+                    <div class="icon-box"><i class="fas fa-trowel-bricks"></i></div>
+                    <span>मिस्त्री</span>
+                </div>
+                <div class="service-card" onclick="openBookingModal('पेंटर (Painter)')" data-name="पेंटर painter">
+                    <div class="icon-box"><i class="fas fa-paint-roller"></i></div>
+                    <span>पेंटर</span>
+                </div>
+                <div class="service-card" onclick="openBookingModal('बढ़ई (Carpenter)')" data-name="बढ़ई carpenter">
+                    <div class="icon-box"><i class="fas fa-hammer"></i></div>
+                    <span>बढ़ई</span>
+                </div>
+                <div class="service-card" onclick="openBookingModal('प्लंबर (Plumber)')" data-name="प्लंबर plumber">
+                    <div class="icon-box"><i class="fas fa-faucet-drip"></i></div>
+                    <span>प्लंबर</span>
+                </div>
+                <div class="service-card" onclick="openBookingModal('इलेक्ट्रिशियन (Electrician)')" data-name="इलेक्ट्रिशियन electrician">
+                    <div class="icon-box"><i class="fas fa-bolt"></i></div>
+                    <span>इलेक्ट्रिशियन</span>
+                </div>
+                <div class="service-card" onclick="openBookingModal('लेबर (Labor/Helper)')" data-name="लेबर मजदूर labor helper">
+                    <div class="icon-box"><i class="fas fa-users"></i></div>
+                    <span>लेबर / मजदूर</span>
+                </div>
+                <div class="service-card" onclick="openBookingModal('ई-रिक्शा (E-Rickshaw)')" data-name="ई रिक्शा erickshaw auto">
+                    <div class="icon-box"><i class="fas fa-caravan"></i></div>
+                    <span>ई-रिक्शा</span>
+                </div>
+                <div class="service-card other-card" onclick="openBookingModal('अन्य (Other Service)')" data-name="अन्य other">
+                    <div class="icon-box"><i class="fas fa-ellipsis-h"></i></div>
+                    <span>अन्य सेवा</span>
+                </div>
+            </div>
+
+            <!-- Quick Action Button -->
+            <div class="quick-actions">
+                <button class="btn-whatsapp-direct" onclick="openWhatsAppDirect()">
+                    <i class="fab fa-whatsapp"></i> व्हाट्सएप पर तुरंत बात करें
+                </button>
+            </div>
+
+            <!-- Bottom Contact & Social Links Section on Homepage -->
+            <div class="home-bottom-contact">
+                <a href="mailto:chaurahaservice@gmail.com" class="bottom-email-link">
+                    <i class="fas fa-envelope"></i> chaurahaservice@gmail.com
+                </a>
+                <div class="social-links-bottom">
+                    <a href="https://wa.me/919876543210" target="_blank" class="social-btn wa"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://facebook.com" target="_blank" class="social-btn fb"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com" target="_blank" class="social-btn insta"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com" target="_blank" class="social-btn yt"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- WINDOW 2: BOOKINGS SCREEN -->
+        <section id="bookings-screen" class="view-screen">
+            <h2 class="section-title">आपकी बुकिंग</h2>
+            <div id="booking-list" class="booking-list">
+                <div class="empty-state">
+                    <i class="fas fa-clipboard-list"></i>
+                    <p>अभी कोई सक्रिय बुकिंग नहीं है।</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- WINDOW 3: PROFILE SCREEN -->
+        <section id="profile-screen" class="view-screen">
+            <div class="profile-card">
+                <img src="logo.png" alt="Chauraha Profile" class="profile-logo">
+                <h3>चौराहा सर्विस</h3>
+                <p class="profile-tagline">चौराहे की हर सुविधा, सिर्फ एक क्लिक पर</p>
+                <a href="mailto:chaurahaservice@gmail.com" class="profile-email-link">
+                    <i class="fas fa-envelope"></i> chaurahaservice@gmail.com
+                </a>
+            </div>
+
+            <!-- Official Website Link in Profile as well -->
+            <div class="web-link-card" onclick="window.open('https://chaurahaservice.com', '_blank')">
+                <i class="fas fa-globe"></i>
+                <div class="web-info">
+                    <span>हमारी आधिकारिक वेबसाइट</span>
+                    <strong>www.chaurahaservice.com</strong>
+                </div>
+                <i class="fas fa-chevron-right arrow"></i>
+            </div>
+
+            <!-- Menu Options -->
+            <div class="menu-list">
+                <div class="menu-item" onclick="shareApp()">
+                    <i class="fas fa-share-alt"></i> <span>ऐप दोस्तों के साथ शेयर करें</span>
+                </div>
+                <div class="menu-item" onclick="alert('चौराहा सर्विस - MSME Registered Enterprise (Govt. of India)')">
+                    <i class="fas fa-shield-alt"></i> <span>MSME रजिस्ट्रेशन प्रमाण</span>
+                </div>
+                <a href="tel:919876543210" class="menu-item">
+                    <i class="fas fa-headset"></i> <span>कस्टमर सपोर्ट से बात करें</span>
+                </a>
+            </div>
+
+            <!-- Social Media Section -->
+            <h3 class="social-title">हमसे सोशल मीडिया पर जुड़ें</h3>
+            <div class="social-links">
+                <a href="https://wa.me/919876543210" target="_blank" class="social-btn wa"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://facebook.com" target="_blank" class="social-btn fb"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank" class="social-btn insta"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com" target="_blank" class="social-btn yt"><i class="fab fa-youtube"></i></a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Booking Modal (Popup) -->
+    <div id="booking-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h3 id="modal-service-title">सेवा बुक करें</h3>
+            <form id="booking-form" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label>आपका नाम:</label>
+                    <input type="text" id="cust-name" placeholder="नाम लिखें" required>
+                </div>
+                <div class="form-group">
+                    <label>मोबाइल नंबर:</label>
+                    <input type="tel" id="cust-phone" placeholder="10 अंकों का नंबर" pattern="[0-9]{10}" required>
+                </div>
+                <div class="form-group">
+                    <label>पूरा पता / ग्राम / मोहल्ला:</label>
+                    <textarea id="cust-address" rows="2" placeholder="पता लिखें" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>काम का विवरण (Optional):</label>
+                    <input type="text" id="cust-work" placeholder="जैसे: 2 लेबर चाहिए / ई-रिक्शा बुक करना है">
+                </div>
+                <button type="submit" class="btn-submit">
+                    <i class="fab fa-whatsapp"></i> बुकिंग व्हाट्सएप पर भेजें
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Message for Exit Warning -->
+    <div id="toast" class="toast">बाहर निकलने के लिए एक बार और बैक दबाएं</div>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+        <button class="nav-item active" onclick="switchTab('home-screen', this)">
+            <i class="fas fa-home"></i>
+            <span>होम</span>
+        </button>
+        <button class="nav-item" onclick="switchTab('bookings-screen', this)">
+            <i class="fas fa-calendar-check"></i>
+            <span>बुकिंग</span>
+        </button>
+        <button class="nav-item" onclick="switchTab('profile-screen', this)">
+            <i class="fas fa-user"></i>
+            <span>प्रोफ़ाइल</span>
+        </button>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
