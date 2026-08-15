@@ -1,0 +1,22 @@
+name: Mobile-Friendly Build
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Web App
+        run: |
+          mkdir -p build
+          cp index.html style.css script.js logo.png icon.png build/
+      - name: Upload Files
+        uses: actions/upload-artifact@v4
+        with:
+          name: Website-Files
+          path: build/
+          
